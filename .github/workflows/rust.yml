@@ -23,5 +23,3 @@ jobs:
         cargo install bootimage
     - name: Build
       run: cargo bootimage
-    - name: Run tests
-      run: cargo test --verbose
