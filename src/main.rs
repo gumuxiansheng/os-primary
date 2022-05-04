@@ -5,14 +5,13 @@
 #![reexport_test_harness_main = "test_main"]
 
 use core::panic::PanicInfo;
-use os_primary::println;
-use os_primary::interrupts;
+use os_primary::{init, println};
 
 #[no_mangle]
 pub extern "C" fn _start() -> ! {
     println!("\nHello World{}", "!");
 
-    interrupts::init_idt();
+    init();
 
     #[cfg(test)]
     test_main();
